@@ -2,13 +2,13 @@
 
 public static void printSubarrays(int numbers[]) {
     int ts = 0;                             // ts = n*(n+1)/2
-    int largestSum = Integer.MAX_VALUE;     // initializing with +infinity
-    int smallestSum = Integer.MIN_VALUE;       // initializing with -infinity
+    int largestSum = Integer.MIN_VALUE;     // initializing with +infinity
+    int smallestSum = Integer.MAX_VALUE;    // initializing with -infinity
 
     for (int i=0; i< numbers.length; i++) {
-        // int start = numbers[i];
+        // int start = numbers[i];          // for beginners
         for (int j=i; j<numbers.length; j++) {
-            // int end = numbers[j];
+            // int end = numbers[j];        // for beginners
             System.out.print("[");          // array starting bracket for output format
 
             int sum = 0;                    // reset sum for each sub-array
@@ -16,15 +16,15 @@ public static void printSubarrays(int numbers[]) {
 
             for (int k=i; k<=j; k++) {      // this loop's task is only to print
 
-                sum = sum + numbers[k];     // calculation and accumulation of each new sum
+                sum += numbers[k];     // calculation and accumulation of each new sum
 
                 System.out.print(numbers[k]);
                 if (k < j) System.out.print(" ");   // space in between for output format
             }
-            if (largestSum > sum) {
+            if (sum > largestSum) {
                 largestSum = sum;
             }
-            if (smallestSum < sum) {
+            if (sum < smallestSum) {
                 smallestSum = sum;
             }
 

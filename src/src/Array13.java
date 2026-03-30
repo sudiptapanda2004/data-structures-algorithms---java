@@ -1,4 +1,5 @@
-// Printing sub-arrays - continuous part of a array with sum, maxSum and minSum
+// Printing sub-arrays - continuous part of a array
+// Also calculating sum, maxSum and minSum using brute force method
 
 public static void printSubarrays(int numbers[]) {
     int ts = 0;                             // ts = n*(n+1)/2
@@ -29,8 +30,8 @@ public static void printSubarrays(int numbers[]) {
             }
 
             ts++;
-            System.out.println("]");        // array ending bracket for output format
-            System.out.println("Sum of this sub-array : "+sum);     // sum of each sub-array is printed
+            // System.out.println("]");        // array ending bracket for output format
+            System.out.println("] -> Sum of this sub-array : "+sum);     // sum of each sub-array is printed
         }
         System.out.println();
     }
@@ -41,8 +42,23 @@ public static void printSubarrays(int numbers[]) {
 }
 
 void main() {
-    int numbers[] = {1,2,3,4,5};
+   // int numbers[] = {1,2,3,4,5};
 
-    System.out.println("A");
+    Scanner sc = new Scanner(System.in);
+
+    // int[] numbers = new int[5];      # direct entered size of array
+
+    System.out.print("Enter array size : ");
+    int n = sc.nextInt();
+    int[] numbers = new int[n];
+
+    System.out.println("Enter " + n + " elements :-");
+    for (int a = 0; a < numbers.length; a++) {// Array user input for fixed-size array
+        System.out.print("Enter element " + (a + 1) + " : ");  // See the output
+        numbers[a] = sc.nextInt();
+    }
+    System.out.println("The array you entered : "+Arrays.toString(numbers));
+
+
     printSubarrays(numbers);
 }
